@@ -99,7 +99,7 @@ $(function() {
 });
 
 // PONY SPECIFIC
-
+/*
 try {
     var preElem = document.getElementsByClassName("pony-full-source")[0].nextElementSibling;
     var codeElem = preElem.children[0];
@@ -126,4 +126,4 @@ try {
 } catch (e) {
     (console.error || console.log).call(console, e.stack || e);
 }
-
+*/
