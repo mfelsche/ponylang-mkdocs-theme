@@ -16,7 +16,7 @@ setup(
     include_package_data=True,
     entry_points={
         'mkdocs.themes': [
-            'bootstrap = mkdocs_ponylang',
+            'themename = mkdocs_ponylang',
         ]
     },
     zip_safe=False
