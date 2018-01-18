@@ -189,9 +189,9 @@ form .search-query {
 
 /*
  * Pony specific extras / tweaks
- */
+
 td, th {
-   border: 1px solid #e1e4e5 !important; /* csslint allow: important */
+   border: 1px solid #e1e4e5 !important;
    border-collapse: collapse;
 }
 
@@ -230,3 +230,4 @@ code.has-numbering {
 .wy-nav-content {
     max-width: 1200px;
 }
+*/
