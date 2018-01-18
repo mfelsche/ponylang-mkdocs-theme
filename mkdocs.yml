@@ -1,6 +1,6 @@
 theme:
     name: mkdocs_ponylang
-    custom_dir: 'ponylang-mkdocs-theme'
+    custom_dir: 'mkdocs_ponylang'
 
     static_templates:
         - 404.html

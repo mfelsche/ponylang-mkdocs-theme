@@ -5,7 +5,7 @@ VERSION = '0.0.1'
 
 
 setup(
-    name="ponylang-mkdocs-theme",
+    name="mkdocs_ponylang",
     version=VERSION,
     url='http://www.mkdocs.org',
     license='BSD',
@@ -16,7 +16,7 @@ setup(
     include_package_data=True,
     entry_points={
         'mkdocs.themes': [
-            'themename = mkdocs_ponylang',
+            'ponylang = mkdocs_ponylang',
         ]
     },
     zip_safe=False
