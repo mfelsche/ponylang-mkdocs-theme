@@ -1,3 +1,12 @@
+
+const $ = require("jquery");
+const hljs = require('highlight.js');
+
+require('modernizr');
+
+// sass/scss
+require('../sass/theme.sass');
+
 $( document ).ready(function() {
     // Shift nav in mobile when clicking the menu.
     $(document).on('click', "[data-toggle='wy-nav-top']", function() {
@@ -34,8 +43,8 @@ $( document ).ready(function() {
 
     // Make tables responsive
     $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");
-
-    hljs.initHighlightingOnLoad();
+  
+    hljs.initHighlighting();
 
     $('table').addClass('docutils');
 });

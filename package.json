@@ -1,0 +1,30 @@
+{
+  "name": "mkdocs_ponylang",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "highlight.js": "^9.12.0",
+    "jquery": "^3.3.1",
+    "modernizr": "^3.5.0"
+  },
+  "devDependencies": {
+    "bourbon": "~4.3.4",
+    "bourbon-neat": "~1.9.0",
+    "css-loader": "^*",
+    "extract-text-webpack-plugin": "*",
+    "file-loader": "*",
+    "json-loader": "^0.5.7",
+    "modernizr-loader": "^1.0.1",
+    "node-sass": "*",
+    "resolve-url-loader": "^2.2.1",
+    "sass-loader": "*",
+    "script-loader": "*",
+    "style-loader": "*",
+    "webpack": "^3.10.0",
+    "wyrm": "^1.0.9"
+  },
+  "scripts": {
+    "webpack": "webpack"
+  }
+}
