@@ -7,46 +7,98 @@ require('modernizr');
 // sass/scss
 require('../sass/theme.sass');
 
-$( document ).ready(function() {
-    // Shift nav in mobile when clicking the menu.
-    $(document).on('click', "[data-toggle='wy-nav-top']", function() {
-      $("[data-toggle='wy-nav-shift']").toggleClass("shift");
-      $("[data-toggle='rst-versions']").toggleClass("shift");
-    });
+$(document).ready(function() {
+  // Shift nav in mobile when clicking the menu.
+  $(document).on('click', "[data-toggle='wy-nav-top']", function() {
+    $("[data-toggle='wy-nav-shift']").toggleClass("shift");
+    $("[data-toggle='rst-versions']").toggleClass("shift");
+  });
 
-    // Close menu when you click a link.
-    $(document).on('click', ".wy-menu-vertical .current ul li a", function() {
-      $("[data-toggle='wy-nav-shift']").removeClass("shift");
-      $("[data-toggle='rst-versions']").toggleClass("shift");
-    });
+  // Close menu when you click a link.
+  $(document).on('click', ".wy-menu-vertical .current ul li a", function() {
+    $("[data-toggle='wy-nav-shift']").removeClass("shift");
+    $("[data-toggle='rst-versions']").toggleClass("shift");
+  });
 
-    // Keyboard navigation
-    document.addEventListener("keydown", function(e) {
-        if ($(e.target).is(':input')) return true;
-        var key = e.which || e.keyCode || window.event && window.event.keyCode;
-        var page;
-        switch (key) {
-            case 39:  // right arrow
-                page = $('[role="navigation"] a:contains(Next):first').prop('href');
-                break;
-            case 37:  // left arrow
-                page = $('[role="navigation"] a:contains(Previous):first').prop('href');
-                break;
-            default: break;
-        }
-        if (page) window.location.href = page;
-    });
+  // Keyboard navigation
+  document.addEventListener("keydown", function(e) {
+      if ($(e.target).is(':input')) return true;
+      var key = e.which || e.keyCode || window.event && window.event.keyCode;
+      var page;
+      switch (key) {
+          case 39:  // right arrow
+              page = $('[role="navigation"] a:contains(Next):first').prop('href');
+              break;
+          case 37:  // left arrow
+              page = $('[role="navigation"] a:contains(Previous):first').prop('href');
+              break;
+          default: break;
+      }
+      if (page) window.location.href = page;
+  });
 
-    $(document).on('click', "[data-toggle='rst-current-version']", function() {
-      $("[data-toggle='rst-versions']").toggleClass("shift-up");
-    });
+  $(document).on('click', "[data-toggle='rst-current-version']", function() {
+    $("[data-toggle='rst-versions']").toggleClass("shift-up");
+  });
 
-    // Make tables responsive
-    $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");
-  
-    hljs.initHighlighting();
+  // Make tables responsive
+  $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");
 
-    $('table').addClass('docutils');
+  hljs.initHighlighting();
+
+  $('table').addClass('docutils');
+
+  // The code below is a copy of @seanmadsen code posted Jan 10, 2017 on issue 803.
+  // https://github.com/mkdocs/mkdocs/issues/803
+  // This just incorporates the auto scroll into the theme itself without
+  // the need for additional custom.js file.
+  //
+  $.fn.isFullyWithinViewport = function(){
+      var viewport = {};
+      viewport.top = $(window).scrollTop();
+      viewport.bottom = viewport.top + $(window).height();
+      var bounds = {};
+      bounds.top = this.offset().top;
+      bounds.bottom = bounds.top + this.outerHeight();
+      return ( ! (
+        (bounds.top <= viewport.top) ||
+        (bounds.bottom >= viewport.bottom)
+      ) );
+  };
+  if( $('li.toctree-l1.current').length && !$('li.toctree-l1.current').isFullyWithinViewport() ) {
+    $('.wy-nav-side')
+      .scrollTop(
+        $('li.toctree-l1.current').offset().top -
+        $('.wy-nav-side').offset().top -
+        60
+      );
+  }
+
+  // PONY SPECIFIC
+
+  // full source listings
+  $('.pony-full-source').first().each(function (i, e) {
+    // more space for source code
+    $('.wy-nav-content').css("max-width", "1200px");
+  });
+
+  // assuming structure like:
+  // <div class="pony-full-source"><pre><code class="pony">...</code></pre></div>
+  //
+  var code_element = $('.pony-full-source pre code');
+  var lines = code_element.text().split('\n').length - 1;
+  var numbering = $('<code class="code-line-numbers"></code>');
+  for (var i = 1; i <= lines; i++) {
+    numbering.append(
+      $('<a></a>')
+        .text(i)
+        .attr('id', 'L' + i)
+    );
+  }
+  code_element
+    .addClass('has-numbering')
+    .parent()
+    .append(numbering);
 });
 
 window.SphinxRtdTheme = (function (jquery) {
@@ -78,61 +130,3 @@ window.SphinxRtdTheme = (function (jquery) {
         StickyNav : stickyNav
     };
 }($));
-
-// The code below is a copy of @seanmadsen code posted Jan 10, 2017 on issue 803.
-// https://github.com/mkdocs/mkdocs/issues/803
-// This just incorporates the auto scroll into the theme itself without
-// the need for additional custom.js file.
-//
-$(function() {
-  $.fn.isFullyWithinViewport = function(){
-      var viewport = {};
-      viewport.top = $(window).scrollTop();
-      viewport.bottom = viewport.top + $(window).height();
-      var bounds = {};
-      bounds.top = this.offset().top;
-      bounds.bottom = bounds.top + this.outerHeight();
-      return ( ! (
-        (bounds.top <= viewport.top) ||
-        (bounds.bottom >= viewport.bottom)
-      ) );
-  };
-  if( $('li.toctree-l1.current').length && !$('li.toctree-l1.current').isFullyWithinViewport() ) {
-    $('.wy-nav-side')
-      .scrollTop(
-        $('li.toctree-l1.current').offset().top -
-        $('.wy-nav-side').offset().top -
-        60
-      );
-  }
-});
-
-// PONY SPECIFIC
-/*
-try {
-    var preElem = document.getElementsByClassName("pony-full-source")[0].nextElementSibling;
-    var codeElem = preElem.children[0];
-    var lines = $(codeElem).text().split('\n').length - 1;
-    var numbering = $('<code class="code-line-numbers"></code>').addClass('pre-numbering');
-    $(codeElem)
-        .addClass('has-numbering')
-        .parent()
-        .append(numbering);
-
-    for (i = 1; i <= lines; i++) {
-        numbering.append($('<div></div>').text(i));
-    }
-} catch (e) {
-    (console.error || console.log).call(console, e.stack || e);
-}
-
-try {
-    var line_number = window.location.href.substring(window.location.href.indexOf("#") + 1);
-    var line_numbers = document.getElementsByClassName("code-line-numbers")[0];
-    var elem = line_numbers.children[line_number - 1];
-    elem.style.backgroundColor = "yellow";
-    elem.scrollIntoView();
-} catch (e) {
-    (console.error || console.log).call(console, e.stack || e);
-}
-*/

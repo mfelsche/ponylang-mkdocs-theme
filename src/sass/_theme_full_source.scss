@@ -1,0 +1,50 @@
+.pony-full-source {
+  pre {
+    position: relative;
+    margin-bottom: 24px;
+    border-radius: 3px;
+    border: 1px solid #C3CCD0;
+    background: #FFF;
+    overflow: hidden;
+
+    code {
+      .has-numbering {
+        margin-left: 28px;
+        display: block;
+        padding: 12px 24px;
+        overflow-y: auto;
+        font-weight: 300;
+        border: none;
+        font-family: $code-font-family
+      }
+
+      .code-line-numbers {
+        width: 35px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 12px 2px 18px 0;
+        border-right: 1px solid #C3CCD0;
+        border-radius: 3px 0 0 3px;
+        background-color: #EEE;
+        text-align: right;
+        font-family: $code-font-family;
+        color: #AAA;
+      }
+    }
+  }
+
+  // element with same id as url hash
+  :target {
+    background-color: $nav-link-color-alt
+  }
+}
+
+.source-link {
+  a {
+    font-size: 8px;
+  }
+}
+
+// backward compatible rule for the hidden attribute
+[hidden] { display: none; }

@@ -7354,6 +7354,55 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold;
 }
 
+.pony-full-source pre {
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: 3px;
+  border: 1px solid #C3CCD0;
+  background: #FFF;
+  overflow: hidden;
+}
+
+.pony-full-source pre code .has-numbering,
+.pony-full-source pre .rst-content tt .has-numbering,
+.rst-content .pony-full-source pre tt .has-numbering {
+  margin-left: 28px;
+  display: block;
+  padding: 12px 24px;
+  overflow-y: auto;
+  font-weight: 300;
+  border: none;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+.pony-full-source pre code .code-line-numbers,
+.pony-full-source pre .rst-content tt .code-line-numbers,
+.rst-content .pony-full-source pre tt .code-line-numbers {
+  width: 35px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 12px 2px 18px 0;
+  border-right: 1px solid #C3CCD0;
+  border-radius: 3px 0 0 3px;
+  background-color: #EEE;
+  text-align: right;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  color: #AAA;
+}
+
+.pony-full-source :target {
+  background-color: #ff8f05;
+}
+
+div.source-link {
+  font-size: 8px;
+}
+
+[hidden] {
+  display: none;
+}
+
 /*
  * Sphinx doesn't have support for section dividers like we do in
  * MkDocs, this styles the section titles in the nav
