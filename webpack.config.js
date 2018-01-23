@@ -50,7 +50,7 @@ const config = {
         })
       },
       {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          test: /\/fonts\/.+\.(eot|svg|ttf|woff|woff2)$/,
           use: [{
             loader: 'file-loader',
             options: {
@@ -61,6 +61,15 @@ const config = {
       {
         test: /\.modernizrrc$/,
         use: [ {loader: 'modernizr-loader' }, {loader: 'json-loader'} ]
+      },
+      {
+        test: /\/img\/.+/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '/img/[name].[ext]'
+          }
+        }]
       }
     ]
   },

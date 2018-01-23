@@ -7395,7 +7395,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   background-color: #ff8f05;
 }
 
-div.source-link {
+.source-link a {
   font-size: 8px;
 }
 

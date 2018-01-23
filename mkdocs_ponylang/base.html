@@ -9,11 +9,22 @@
   {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
   {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
   {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
-  {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
+  {% else %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ base_url }}/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ base_url }}/img/favicon-16x16.png">
+    <link rel="manifest" href="{{ base_url }}/img/manifest.json">
+    <link rel="mask-icon" href="{{ base_url }}/img/safari-pinned-tab.svg" color="#795548">
+    <meta name="theme-color" content="#795548">
+    <link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">
+    <meta name="application-name" content="{{ config.site_name }}" />
+    <meta name="msapplication-TileColor" content="#795548" />
+    <meta name="msapplication-square150x150logo" content="{{ base_url }}/img/mstile-150x150.png" />
+  {% endif %}
   {%- endblock %}
 
   {%- block htmltitle %}
-  <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
   {%- endblock %}
 
   {%- block styles %}

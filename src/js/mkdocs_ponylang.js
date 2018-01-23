@@ -7,6 +7,10 @@ require('modernizr');
 // sass/scss
 require('../sass/theme.sass');
 
+// images
+require.context('../img', false, /.+$/);
+
+
 $(document).ready(function() {
   // Shift nav in mobile when clicking the menu.
   $(document).on('click', "[data-toggle='wy-nav-top']", function() {
