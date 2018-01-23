@@ -27,7 +27,7 @@ Install yarn to install further dependencies::
 
 In order to regenerate the theme files inside the `mkdocs_ponylang` folder, run::
 
-webpack
+    webpack
 
 
 The Webpack executable should be in your global node installation and thus on your path.
