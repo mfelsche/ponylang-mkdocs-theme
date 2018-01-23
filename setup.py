@@ -1,7 +1,11 @@
-
+import os
 from setuptools import setup, find_packages
 
-VERSION = '0.0.3'
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+VERSION = '0.0.4'
 
 setup(
     name="mkdocs_ponylang",
@@ -9,6 +13,7 @@ setup(
     url='http://www.mkdocs.org',
     license='BSD',
     description='Ponylang theme for MkDocs',
+    long_description=read("README.rst"),
     author='Matthias Wahl',
     author_email='matthiaswahl@m7w3.de',
     packages=find_packages(),
