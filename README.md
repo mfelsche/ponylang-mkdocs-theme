@@ -68,3 +68,14 @@ Reference this theme from your mkdocs.yml configuration file like so:
 theme: ponylang
 ```
 
+## Publishing
+
+The package is packaged and distributed on the [Python Package Index (PyPI)](https://pypi.python.org).
+
+```bash
+pip install -U wheel twine
+cd ponylang-mkdocs-theme
+rm -rf ./dist/*
+python setup.py sdist bdist_wheel
+twine upload
+```
