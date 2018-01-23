@@ -7,8 +7,6 @@ The sources for generating the theme files is mostly in `src` folder,
 it is generated using `webpack`. The theme itself is distributed as python package
 and can be referenced in your `mkdocs.yml` as::
 
-.. code-block:: yaml
-
     theme: ponylang
 
 Setup
@@ -19,7 +17,6 @@ I installed it using [asdf](https://github.com/asdf-vm/asdf),
 but any installation method will do.
 
 Install yarn to install further dependencies::
-
 
     npm install -g yarn
     yarn install
@@ -69,7 +66,7 @@ Usage
 
 Reference this theme from your mkdocs.yml configuration file like so::
 
-.. code-block:: yaml
+::
 
     theme: ponylang
 
@@ -78,7 +75,7 @@ Publishing
 
 The package is packaged and distributed on the [Python Package Index (PyPI)](https://pypi.python.org).
 
-.. code-block:: bash
+::
 
     pip install -U wheel twine
     cd ponylang-mkdocs-theme
