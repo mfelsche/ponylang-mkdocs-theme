@@ -89,19 +89,25 @@ $(document).ready(function() {
   // assuming structure like:
   // <div class="pony-full-source"><pre><code class="pony">...</code></pre></div>
   //
-  var code_element = $('.pony-full-source pre code');
+  var code_element = $('pre code.pony-full-source');
   var lines = code_element.text().split('\n').length - 1;
   var numbering = $('<code class="code-line-numbers"></code>');
   for (var i = 1; i <= lines; i++) {
     numbering.append(
-      $('<a></a>')
-        .text(i)
-        .attr('id', 'L' + i)
+      $('<code></code>')
+        .addClass('code-line-number')
+        .append(
+          $('<a></a>')
+            .text(i)
+            .attr('id', 'L' + i)
+            .attr('href', '#L' + i)
+        )
     );
   }
   code_element
     .addClass('has-numbering')
     .parent()
+    .addClass('pony-full-source')
     .append(numbering);
 });
 

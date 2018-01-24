@@ -1,5 +1,5 @@
-.pony-full-source {
-  pre {
+pre {
+  &.pony-full-source {
     position: relative;
     margin-bottom: 24px;
     border-radius: 3px;
@@ -8,7 +8,7 @@
     overflow: hidden;
 
     code {
-      .has-numbering {
+      &.pony-full-source {
         margin-left: 28px;
         display: block;
         padding: 12px 24px;
@@ -18,7 +18,7 @@
         font-family: $code-font-family
       }
 
-      .code-line-numbers {
+      &.code-line-numbers {
         width: 35px;
         position: absolute;
         top: 0;
@@ -30,19 +30,29 @@
         text-align: right;
         font-family: $code-font-family;
         color: #AAA;
+
+        .code-line-number {
+          padding: 0px 5px;
+          border: 0px;
+          background-color: #EEE;
+
+          a:target {
+            font-weight: bold;
+            color: $nav-link-color-alt;
+            border: none;
+            text-decoration: none;
+            outline: none;
+          }
+        }
       }
     }
   }
-
-  // element with same id as url hash
-  :target {
-    background-color: $nav-link-color-alt
-  }
 }
+
 
 .source-link {
   a {
-    font-size: 8px;
+    font-size: 50%;
   }
 }
 
