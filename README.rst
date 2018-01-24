@@ -59,7 +59,9 @@ From Git
 From PyPI
 .........
 
-TBD.
+::
+
+    pip install mkdocs-ponylang
 
 Usage
 -----
