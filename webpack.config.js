@@ -1,6 +1,7 @@
 const path = require('path');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "./css/[name].css",
@@ -15,7 +16,8 @@ const config = {
     filename: './js/bundle.js'
   },
   plugins: [
-    extractSass
+    extractSass,
+    new UglifyJsPlugin()
   ],
   devServer:{
     contentBase: path.join(__dirname, "mkdocs_ponylang")
@@ -41,12 +43,10 @@ const config = {
                   path.resolve(__dirname, 'node_modules','font-awesome','scss'),
                   path.resolve(__dirname, 'node_modules','wyrm','sass')
                 ],
-                outputStyle: "nested" // nested, expanded, compact, compressed
+                outputStyle: "compact" // nested, expanded, compact, compressed
               }
             }
-          ],
-          // use style-loader in development
-          fallback: "style-loader"
+          ]
         })
       },
       {
