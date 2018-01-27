@@ -16,8 +16,8 @@ const config = {
     filename: './js/bundle.js'
   },
   plugins: [
-    extractSass,
-    new UglifyJsPlugin()
+    extractSass//,
+    //new UglifyJsPlugin()
   ],
   devServer:{
     contentBase: path.join(__dirname, "mkdocs_ponylang")
@@ -59,10 +59,6 @@ const config = {
           }]
       },
       {
-        test: /\.modernizrrc$/,
-        use: [ {loader: 'modernizr-loader' }, {loader: 'json-loader'} ]
-      },
-      {
         test: /\/img\/.+/,
         use: [{
           loader: 'file-loader',
@@ -72,11 +68,6 @@ const config = {
         }]
       }
     ]
-  },
-  resolve: {
-    alias: {
-      modernizr$: path.resolve(__dirname, ".modernizrrc")
-    }
   }
 };
 

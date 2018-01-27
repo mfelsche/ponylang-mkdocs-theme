@@ -35,13 +35,15 @@ pre {
           padding: 0px 5px;
           border: 0px;
           background-color: #EEE;
+          overflow: hidden;
 
-          a:target {
-            font-weight: bold;
-            color: $nav-link-color-alt;
-            border: none;
-            text-decoration: none;
-            outline: none;
+          a {
+            &:visited, &:target {
+              color: #2980B9;
+              border: none;
+              text-decoration: none;
+              outline: none;
+            }
           }
         }
       }
