@@ -51,10 +51,21 @@ pre {
   }
 }
 
+h1, h3 {
+  // make it possible to display the source link next to headings
+  display: inline-block;
+}
 
-.source-link {
+p.source-link-container {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 12px;
+  font-family: $custom-font-family;
+
   a {
-    font-size: 50%;
+    &.source-link {
+      font-size: 0.5em;
+    }
   }
 }
 

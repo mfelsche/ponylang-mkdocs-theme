@@ -8,6 +8,7 @@ import hljs_json from 'highlight.js/lib/languages/json'
 import hljs_bash from 'highlight.js/lib/languages/bash'
 import hljs_markdown from 'highlight.js/lib/languages/markdown'
 hljs.registerLanguage("pony", hljs_pony);
+hljs.registerLanguage("pony-full-source", hljs_pony); // in order to support full source pony listings
 hljs.registerLanguage("cpp", hljs_cpp);
 hljs.registerLanguage("json", hljs_json);
 hljs.registerLanguage("bash", hljs_bash);
@@ -91,6 +92,9 @@ $(document).ready(function() {
 
 // PONY SPECIFIC
 $(document).ready(function() {
+  // source-links styling
+  $(".source-link").parent().addClass("source-link-container");
+
   // full source listings
   var full_source = $('.pony-full-source');
   if (full_source.length) {
