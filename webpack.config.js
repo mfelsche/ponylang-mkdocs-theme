@@ -4,7 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
-    filename: "./css/[name].css",
+    filename: "./[name].css",
     disable: process.env.NODE_ENV === "development",
     allChunks: true
 });
@@ -32,7 +32,7 @@ const config = {
               loader: "css-loader"
             },
             {
-              loader: 'resolve-url-loader'
+              loader: "resolve-url-loader"
             },
             {
               loader: "sass-loader",
@@ -54,7 +54,8 @@ const config = {
           use: [{
             loader: 'file-loader',
             options: {
-              name: '/fonts/[name].[ext]'
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
             }
           }]
       },
