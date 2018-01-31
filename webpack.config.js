@@ -40,8 +40,7 @@ const config = {
                 includePaths: [
                   path.resolve(__dirname, 'node_modules','bourbon','app','assets','stylesheets'),
                   path.resolve(__dirname, 'node_modules','bourbon-neat','app','assets','stylesheets'),
-                  path.resolve(__dirname, 'node_modules','font-awesome','scss'),
-                  path.resolve(__dirname, 'node_modules','wyrm','sass')
+                  path.resolve(__dirname, 'node_modules','font-awesome','scss')
                 ],
                 outputStyle: "compact" // nested, expanded, compact, compressed
               }

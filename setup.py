@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-VERSION = '0.0.11'
+VERSION = '0.0.12'
 
 setup(
     name="mkdocs_ponylang",
