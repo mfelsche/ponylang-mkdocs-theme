@@ -50,21 +50,24 @@ pre {
   }
 }
 
-h1, h3 {
+h1, h3, h5 {
   // make it possible to display the source link next to headings
   display: inline-block;
 }
 
-p.source-link-container {
+h5 {
+  // looks better for empty field docstring
+  margin-bottom: 1em;
+}
+
+.source-link-container {
   display: inline-block;
   margin-left: 0.5em;
-  font-size: 12px;
-  font-family: $custom-font-family;
+  margin-bottom: 0px;
 
-  a {
-    &.source-link {
-      font-size: 0.5em;
-    }
+  span.source-link {
+    font-family: $custom-font-family;
+    font-size: 0.8em;
   }
 }
 
